@@ -12,13 +12,12 @@ jobs:
     with:
       artifact-name: build
       os: '["ubuntu-24.04"]'
-      # mode: '["linux"]'
-      mode: '["linux build-qemu"]'
-      target: '["rv32gc-ilp32d"]'
+      mode: '["linux"]'
+      target: '["rv32gc-ilp32d","rv64gc-lp64d"]'
       compiler: '["gcc"]'
       languages: '["c"]'
       strip: 'stripped'
-      report: false
+      report: true
 
   create-release:
     needs: [build]

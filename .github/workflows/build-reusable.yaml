@@ -182,6 +182,9 @@ jobs:
           sudo mkdir /mnt/riscv
           sudo chown runner:runner /mnt/riscv
           make -j $(nproc) ${{ matrix.mode }}
+      - name: build simulator
+        run: |
+          make -j $(nproc) build-sim
       - name: make report
         if: |
           matrix.os == 'ubuntu-24.04'

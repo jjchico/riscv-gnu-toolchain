@@ -17,7 +17,8 @@ jobs:
       compiler: '["gcc"]'
       languages: '["c"]'
       strip: 'stripped'
-      report: true
+      report: false
+      sim: '["qemu"]'
 
   create-release:
     needs: [build]

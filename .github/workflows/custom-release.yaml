@@ -58,7 +58,6 @@ jobs:
           body: |
             **Custom Release**
             ${{ steps.metadata.outputs.datestamp }}-custom
-          #draft: false
-          draft: true
+          draft: false
           files: |
             ${{ env.ARTIFACTS_DIR }}/*

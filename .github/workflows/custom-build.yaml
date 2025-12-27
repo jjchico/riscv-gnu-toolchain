@@ -1,0 +1,20 @@
+name: Custom build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - custom
+jobs:
+  build:
+    uses: ./.github/workflows/build-reusable.yaml
+    with:
+      artifact-name: build
+      os: '["ubuntu-24.04"]'
+      # mode: '["linux"]'
+      mode: '["linux build-qemu"]'
+      target: '["rv32gc-ilp32d"]'
+      compiler: '["gcc"]'
+      languages: '["c"]'
+      strip: 'stripped'
+      report: false

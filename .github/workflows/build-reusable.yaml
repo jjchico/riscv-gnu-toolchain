@@ -42,6 +42,11 @@ on:
         description: "Simulator"
         type: string
         default: '[""]'
+      build-sim:
+        description: "Build simulator and include in the toolchain"
+        type: boolean
+        default: true
+
 
 env:
   submodule_paths: |
@@ -135,6 +140,8 @@ jobs:
         languages: ${{ fromJSON(inputs.languages) }}
         report:
           - ${{ inputs.report }}
+        build-sim:
+          - ${{ inputs.build-sim }}
 
         exclude:
           - mode: musl
@@ -183,6 +190,8 @@ jobs:
           sudo chown runner:runner /mnt/riscv
           make -j $(nproc) ${{ matrix.mode }}
       - name: build simulator
+        if: |
+          matrix.build-sim == true
         run: |
           make -j $(nproc) build-sim
       - name: make report

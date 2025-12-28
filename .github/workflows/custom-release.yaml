@@ -19,6 +19,7 @@ jobs:
       strip: 'stripped'
       report: false
       sim: '["qemu"]'
+      build-sim: true
 
   create-release:
     needs: [build]

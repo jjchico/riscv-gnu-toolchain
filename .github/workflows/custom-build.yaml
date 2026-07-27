@@ -10,9 +10,9 @@ jobs:
     uses: ./.github/workflows/build-reusable.yaml
     with:
       artifact-name: build
-      os: '["ubuntu-24.04"]'
+      os: '["ubuntu-24.04", "ubuntu-26.04"]'
       mode: '["linux"]'
-      target: '["rv32gc-ilp32d","rv64gc-lp64d"]'
+      target: '["rv32gc-ilp32d"]'
       compiler: '["gcc"]'
       languages: '["c"]'
       strip: 'stripped'

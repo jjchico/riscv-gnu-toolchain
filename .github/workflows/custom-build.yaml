@@ -11,7 +11,7 @@ jobs:
     with:
       artifact-name: build
       os: '["ubuntu-24.04", "ubuntu-26.04"]'
-      mode: '["linux"]'
+      mode: '["linux", "picolibc"]'
       target: '["rv32gc-ilp32d"]'
       compiler: '["gcc"]'
       languages: '["c"]'

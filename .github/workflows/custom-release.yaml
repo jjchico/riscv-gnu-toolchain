@@ -11,7 +11,7 @@ jobs:
     uses: ./.github/workflows/build-reusable.yaml
     with:
       os: '["ubuntu-24.04", "ubuntu-26.04"]'
-      mode: '["linux"]'
+      mode: '["linux", "picolibc"]'
       target: '["rv32gc-ilp32d"]'
       compiler: '["gcc"]'
       languages: '["c"]'
@@ -40,7 +40,7 @@ jobs:
           echo "dateword=$(date --utc '+%B %d, %Y')" >> $GITHUB_OUTPUT
         shell: bash
       - name: Download Built Artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           path: ${{ env.ARTIFACTS_DIR }}
           merge-multiple: true

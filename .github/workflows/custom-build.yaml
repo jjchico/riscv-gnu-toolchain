@@ -6,13 +6,26 @@ on:
     branches:
       - custom
 jobs:
-  build:
+  build_linux:
     uses: ./.github/workflows/build-reusable.yaml
     with:
-      artifact-name: build
+      #artifact-name: build_linux
       os: '["ubuntu-24.04", "ubuntu-26.04"]'
-      mode: '["linux", "picolibc"]'
+      mode: '["linux"]'
       target: '["rv32gc-ilp32d"]'
+      compiler: '["gcc"]'
+      languages: '["c"]'
+      strip: 'stripped'
+      report: false
+      sim: '["qemu"]'
+      build-sim: true
+  build_picolibc:
+    uses: ./.github/workflows/build-reusable.yaml
+    with:
+      #artifact-name: build_picolibc
+      os: '["ubuntu-24.04", "ubuntu-26.04"]'
+      mode: '["picolibc"]'
+      target: '["rv32i-ilp32"]'
       compiler: '["gcc"]'
       languages: '["c"]'
       strip: 'stripped'
